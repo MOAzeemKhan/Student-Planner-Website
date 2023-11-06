@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" type = 'text/css' href="../public/styles/home_style.css">
+</head>
+<body>
+    <div class="header">
+        <div class="side-nav">
+            <div class="user">
+                <img src="../public/images/user.png" class="user-img">
+                <div>
+                    <h2>{{name}}</h2>
+                </div>
+            </div>
+            <ul>
+                <li><img src="../public/images/notes.png"><a href="/notes"><p>Notes</p></a></li>
+                <li><img src="../public/images/to-do.png"><a href="/todo"><p>To-Do List</p></a></li>
+            </ul>
+
+            <ul>
+                <li><img src="../public/images/logout.png"><a href ="/login"><p>Logout</p></a></li>
+
+            </ul>
+        </div>
+        <div class="container">
+            <h1 id="current-time"></h1>
+
+        </div>
+        <div class="calendar">
+            <div class="left">
+                <p id="date">01</p>
+                <p id="day">Sunday</p>
+            </div>
+            <div class="right">
+                <p id="month">January</p>
+                <p id="year">2023 </p>
+            </div>
+        </div>
+    </div>
+
+<script>
+    let time = document.getElementById("current-time")
+    setInterval(()=>{
+        let d = new Date();
+        time.innerHTML = d.toLocaleTimeString();
+    },1000)
+
+    const date =document.getElementById("date");
+    const day =document.getElementById("day");
+    const month =document.getElementById("month");
+    const year =document.getElementById("year");
+
+    const today= new Date();
+    const weekDays=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    const allMonths=["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    
+    date.innerHTML = today.getDate();
+    day.innerHTML = weekDays[today.getDay()];
+    month.innerHTML =allMonths[today.getMonth()];
+    year.innerHTML = today.getFullYear();
+    
+</script>
+</body>
+</html>
